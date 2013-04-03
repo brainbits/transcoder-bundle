@@ -1,0 +1,26 @@
+{
+    "name": "brainbits/transcoder-bundle",
+    "description": "Bundle for encoding, decoding transcoding data.",
+    "keywords": ["symfony", "encoder", "decoder"],
+    "homepage": "http://brainbits.net",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gregor Welters",
+            "email": "gwelters@brainbits.net"
+        },
+        {
+            "name": "Phillip Look",
+            "email": "plook@brainbits.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "brainbits/transcoder": ">=1.0.0",
+        "symfony/framework-bundle": ">=2.1.0"
+    },
+    "autoload": {
+        "psr-0": { "Brainbits": "src/" }
+    },
+    "minimum-stability": "stable"
+}

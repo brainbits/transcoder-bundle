@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="brainbits.transcoder.encoder.7z" class="Brainbits\Transcoder\Encoder\SevenzEncoder">
+            <tag name="transcoder.encoder"/>
+        </service>
+
+        <service id="brainbits.transcoder.encoder.bzip2" class="Brainbits\Transcoder\Encoder\Bzip2Encoder">
+            <tag name="transcoder.encoder"/>
+        </service>
+
+        <service id="brainbits.transcoder.encoder.deflate" class="Brainbits\Transcoder\Encoder\DeflateEncoder">
+            <tag name="transcoder.encoder"/>
+        </service>
+
+        <service id="brainbits.transcoder.encoder.gzip" class="Brainbits\Transcoder\Encoder\GzipEncoder">
+            <tag name="transcoder.encoder"/>
+        </service>
+
+        <service id="brainbits.transcoder.encoder.null" class="Brainbits\Transcoder\Encoder\NullEncoder">
+            <tag name="transcoder.encoder"/>
+        </service>
+
+        <service id="brainbits.transcoder.encoder.resolver" class="Brainbits\Transcoder\Encoder\EncoderResolver">
+            <argument type="collection">
+                <service id="brainbits.transcoder.encoder.7z"></service>
+                <service id="brainbits.transcoder.encoder.bzip2"></service>
+                <service id="brainbits.transcoder.encoder.deflate"></service>
+                <service id="brainbits.transcoder.encoder.gzip"></service>
+                <service id="brainbits.transcoder.encoder.null"></service>
+            </argument>
+        </service>
+
+    </services>
+
+</container>
