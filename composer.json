@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "brainbits/transcoder": ">=1.0.0",
+        "brainbits/transcoder": ">=1.1.0",
         "symfony/framework-bundle": ">=2.1.0"
     },
     "autoload": {
