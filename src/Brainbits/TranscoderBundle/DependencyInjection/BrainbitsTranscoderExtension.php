@@ -35,5 +35,17 @@ class BrainbitsTranscoderExtension extends Extension
         $loader->load('decoders.xml');
         $loader->load('encoders.xml');
         $loader->load('services.xml');
+
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $container->setParameter(
+            'brainbits.transcoder.decoder.7z.executable',
+            $config['brainbits_transcoder']['decoder']['7z']
+        );
+        $container->setParameter(
+            'brainbits.transcoder.encoder.7z.executable',
+            $config['brainbits_transcoder']['encoder']['7z']
+        );
     }
 }

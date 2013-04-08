@@ -4,29 +4,40 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+        <parameter key="brainbits.transcoder.encoder.7z.executable">7z</parameter>
+        <parameter key="brainbits.transcoder.encoder.7z.class">Brainbits\Transcoder\Encoder\SevenzEncoder</parameter>
+        <parameter key="brainbits.transcoder.encoder.bzip2.class">Brainbits\Transcoder\Encoder\Bzip2Encoder</parameter>
+        <parameter key="brainbits.transcoder.encoder.deflate.class">Brainbits\Transcoder\Encoder\DeflateEncoder</parameter>
+        <parameter key="brainbits.transcoder.encoder.gzip.class">Brainbits\Transcoder\Encoder\GzipEncoder</parameter>
+        <parameter key="brainbits.transcoder.encoder.null.class">Brainbits\Transcoder\Encoder\NullEncoder</parameter>
+        <parameter key="brainbits.transcoder.encoder.resolver.class">Brainbits\Transcoder\Encoder\Resolver</parameter>
+    </parameters>
+
     <services>
 
-        <service id="brainbits.transcoder.encoder.7z" class="Brainbits\Transcoder\Encoder\SevenzEncoder">
+        <service id="brainbits.transcoder.encoder.7z" class="%brainbits.transcoder.encoder.7z.class%">
+            <argument>%brainbits.transcoder.encoder.7z.executable%</argument>
             <tag name="transcoder.encoder"/>
         </service>
 
-        <service id="brainbits.transcoder.encoder.bzip2" class="Brainbits\Transcoder\Encoder\Bzip2Encoder">
+        <service id="brainbits.transcoder.encoder.bzip2" class="%brainbits.transcoder.encoder.bzip2.class%">
             <tag name="transcoder.encoder"/>
         </service>
 
-        <service id="brainbits.transcoder.encoder.deflate" class="Brainbits\Transcoder\Encoder\DeflateEncoder">
+        <service id="brainbits.transcoder.encoder.deflate" class="%brainbits.transcoder.encoder.deflate.class%">
             <tag name="transcoder.encoder"/>
         </service>
 
-        <service id="brainbits.transcoder.encoder.gzip" class="Brainbits\Transcoder\Encoder\GzipEncoder">
+        <service id="brainbits.transcoder.encoder.gzip" class="%brainbits.transcoder.encoder.gzip.class%">
             <tag name="transcoder.encoder"/>
         </service>
 
-        <service id="brainbits.transcoder.encoder.null" class="Brainbits\Transcoder\Encoder\NullEncoder">
+        <service id="brainbits.transcoder.encoder.null" class="%brainbits.transcoder.encoder.null.class%">
             <tag name="transcoder.encoder"/>
         </service>
 
-        <service id="brainbits.transcoder.encoder.resolver" class="Brainbits\Transcoder\Encoder\EncoderResolver">
+        <service id="brainbits.transcoder.encoder.resolver" class="%brainbits.transcoder.encoder.resolver.class%">
             <argument type="collection">
                 <service id="brainbits.transcoder.encoder.7z"></service>
                 <service id="brainbits.transcoder.encoder.bzip2"></service>
