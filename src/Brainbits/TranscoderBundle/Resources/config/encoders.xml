@@ -11,7 +11,7 @@
         <parameter key="brainbits.transcoder.encoder.deflate.class">Brainbits\Transcoder\Encoder\DeflateEncoder</parameter>
         <parameter key="brainbits.transcoder.encoder.gzip.class">Brainbits\Transcoder\Encoder\GzipEncoder</parameter>
         <parameter key="brainbits.transcoder.encoder.null.class">Brainbits\Transcoder\Encoder\NullEncoder</parameter>
-        <parameter key="brainbits.transcoder.encoder.resolver.class">Brainbits\Transcoder\Encoder\Resolver</parameter>
+        <parameter key="brainbits.transcoder.encoder.resolver.class">Brainbits\Transcoder\Encoder\EncoderResolver</parameter>
     </parameters>
 
     <services>
@@ -38,13 +38,7 @@
         </service>
 
         <service id="brainbits.transcoder.encoder.resolver" class="%brainbits.transcoder.encoder.resolver.class%">
-            <argument type="collection">
-                <service id="brainbits.transcoder.encoder.7z"></service>
-                <service id="brainbits.transcoder.encoder.bzip2"></service>
-                <service id="brainbits.transcoder.encoder.deflate"></service>
-                <service id="brainbits.transcoder.encoder.gzip"></service>
-                <service id="brainbits.transcoder.encoder.null"></service>
-            </argument>
+            <argument type="collection" />
         </service>
 
     </services>
