@@ -16,14 +16,8 @@
 
     <services>
 
-        <service id="brainbits.transcoder.encoder.7z.process_builder" class="Symfony\Component\Process\ProcessBuilder">
-            <argument type="collection">
-                <argument>%brainbits.transcoder.encoder.7z.executable%</argument>
-            </argument>
-        </service>
-
         <service id="brainbits.transcoder.encoder.7z" class="%brainbits.transcoder.encoder.7z.class%">
-            <argument type="service" id="brainbits.transcoder.encoder.7z.process_builder"/>
+            <argument>%brainbits.transcoder.encoder.7z.executable%</argument>
             <tag name="transcoder.encoder"/>
         </service>
 
