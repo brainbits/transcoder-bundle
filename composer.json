@@ -35,5 +35,5 @@
     },
     "autoload-dev": {
         "psr-4": { "Brainbits\\TranscoderBundle\\Tests\\": "tests/" }
-    },
+    }
 }
