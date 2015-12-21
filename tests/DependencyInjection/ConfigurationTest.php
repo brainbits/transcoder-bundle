@@ -13,6 +13,11 @@ namespace Brainbits\TranscoderBundle\Tests\DependencyInjection;
 use Brainbits\TranscoderBundle\DependencyInjection\Configuration;
 use Matthias\SymfonyConfigTest\PhpUnit\AbstractConfigurationTestCase;
 
+/**
+ * Configuration test
+ *
+ * @author Stephan Wentz <swentz@brainbits.net>
+ */
 class ConfigurationTest extends AbstractConfigurationTestCase
 {
     protected function getConfiguration()

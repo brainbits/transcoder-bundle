@@ -16,8 +16,29 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
+/**
+ * Add encoder pass test
+ *
+ * @author Stephan Wentz <swentz@brainbits.net>
+ */
 class AddEncoderPassTest extends TestCase
 {
+    public function testProcessWithoutDefinition()
+    {
+        $pass = new AddEncoderPass();
+
+        $definition = new Definition(null, array(null));
+
+        $container = $this->prophesize(ContainerBuilder::class);
+        $container->hasDefinition('brainbits.transcoder.encoder.resolver')->willReturn(false);
+        $container->findTaggedServiceIds('transcoder.encoder')->shouldNotBeCalled();
+        $container->getDefinition('brainbits.transcoder.encoder.resolver')->shouldNotBeCalled();
+
+        $pass->process($container->reveal());
+
+        $this->assertNull($definition->getArgument(0)[0]);
+    }
+
     public function testProcess()
     {
         $pass = new AddEncoderPass();

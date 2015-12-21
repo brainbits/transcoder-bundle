@@ -13,6 +13,11 @@ namespace Brainbits\TranscoderBundle\Tests\DependencyInjection;
 use Brainbits\TranscoderBundle\DependencyInjection\BrainbitsTranscoderExtension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
+/**
+ * Extension test
+ *
+ * @author Stephan Wentz <swentz@brainbits.net>
+ */
 class BrainbitsTranscoderExtensionTest extends AbstractExtensionTestCase
 {
     protected function getContainerExtensions()
