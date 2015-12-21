@@ -33,5 +33,7 @@
     "autoload": {
         "psr-4": { "Brainbits\\TranscoderBundle\\": "src/" }
     },
-    "minimum-stability": "stable"
+    "autoload-dev": {
+        "psr-4": { "Brainbits\\TranscoderBundle\\Tests\\": "tests/" }
+    },
 }
