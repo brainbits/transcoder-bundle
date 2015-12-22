@@ -20,7 +20,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "brainbits/transcoder": "~2.0"
+        "brainbits/transcoder": "^2.0.2"
     },
     "require-dev": {
         "php": ">=5.5.0",
