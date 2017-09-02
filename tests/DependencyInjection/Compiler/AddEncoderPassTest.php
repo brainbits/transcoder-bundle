@@ -11,15 +11,13 @@
 namespace Brainbits\TranscoderBundle\Tests\DependencyInjection\Compiler;
 
 use Brainbits\TranscoderBundle\DependencyInjection\Compiler\AddEncoderPass;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
  * Add encoder pass test
- *
- * @author Stephan Wentz <swentz@brainbits.net>
  */
 class AddEncoderPassTest extends TestCase
 {
