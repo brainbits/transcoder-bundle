@@ -11,15 +11,16 @@
 namespace Brainbits\TranscoderBundle\Tests\DependencyInjection;
 
 use Brainbits\TranscoderBundle\DependencyInjection\Configuration;
-use Matthias\SymfonyConfigTest\PhpUnit\AbstractConfigurationTestCase;
+use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Configuration test
- *
- * @author Stephan Wentz <swentz@brainbits.net>
  */
-class ConfigurationTest extends AbstractConfigurationTestCase
+class ConfigurationTest extends TestCase
 {
+    use ConfigurationTestCaseTrait;
+
     protected function getConfiguration()
     {
         return new Configuration();
@@ -28,50 +29,50 @@ class ConfigurationTest extends AbstractConfigurationTestCase
     public function testValuesAreValidIfNoValuesAreProvided()
     {
         $this->assertConfigurationIsValid(
-            array(
-                array() // no values at all
-            )
+            [
+                [] // no values at all
+            ]
         );
     }
 
     public function testDefaultValues()
     {
         $this->assertProcessedConfigurationEquals(
-            array(
-                array() // no values at all
-            ),
-            array(
-                'decoder' => array(
-                    '7z' => '7z'
-                ),
-                'encoder' => array(
-                    '7z' => '7z'
-                )
-            )
+            [
+                [], // no values at all
+            ],
+            [
+                'decoder' => [
+                    '7z' => '7z',
+                ],
+                'encoder' => [
+                    '7z' => '7z',
+                ],
+            ]
         );
     }
 
     public function testProvidedValues()
     {
         $this->assertProcessedConfigurationEquals(
-            array(
-                array(
-                    'decoder' => array(
-                        '7z' => 'sevenZ'
-                    ),
-                    'encoder' => array(
-                        '7z' => 'sevenZ'
-                    )
-                )
-            ),
-            array(
-                'decoder' => array(
-                    '7z' => 'sevenZ'
-                ),
-                'encoder' => array(
-                    '7z' => 'sevenZ'
-                )
-            )
+            [
+                [
+                    'decoder' => [
+                        '7z' => 'sevenZ',
+                    ],
+                    'encoder' => [
+                        '7z' => 'sevenZ',
+                    ],
+                ],
+            ],
+            [
+                'decoder' => [
+                    '7z' => 'sevenZ',
+                ],
+                'encoder' => [
+                    '7z' => 'sevenZ',
+                ],
+            ]
         );
     }
 }

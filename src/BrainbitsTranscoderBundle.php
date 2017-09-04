@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types = 1);
+
 /*
  * This file is part of the brainbits transcoder bundle package.
  *
@@ -16,13 +19,11 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * brainbits transcoder bundle
- *
- * @author Phillip Look <plook@brainbits.net>
+ * brainbits transcoder bundle.
  */
 class BrainbitsTranscoderBundle extends Bundle
 {
-    public function build(ContainerBuilder $container)
+    public function build(ContainerBuilder $container): void
     {
         parent::build($container);
 
