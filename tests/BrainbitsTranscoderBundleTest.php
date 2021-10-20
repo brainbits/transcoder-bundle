@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the brainbits transcoder bundle package.
  *
@@ -16,6 +18,7 @@ use Brainbits\TranscoderBundle\DependencyInjection\Compiler\AddDecoderPass;
 use Brainbits\TranscoderBundle\DependencyInjection\Compiler\AddEncoderPass;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -23,7 +26,9 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  */
 class BrainbitsTranscoderBundleTest extends TestCase
 {
-    public function testBuild()
+    use ProphecyTrait;
+
+    public function testBuild(): void
     {
         $bundle = new BrainbitsTranscoderBundle();
 

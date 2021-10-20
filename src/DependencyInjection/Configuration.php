@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the brainbits transcoder bundle package.
@@ -23,9 +23,10 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('brainbits_transcoder');
+        $treeBuilder = new TreeBuilder('brainbits_transcoder');
+        $rootNode = $treeBuilder->getRootNode();
 
+        // @phpstan-ignore-next-line
         $rootNode
             ->children()
                 ->arrayNode('decoder')

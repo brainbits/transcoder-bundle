@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the brainbits transcoder bundle package.
@@ -23,9 +23,12 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  */
 class BrainbitsTranscoderExtension extends Extension
 {
+    /**
+     * @param array<int, mixed> $configs
+     */
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
         $loader->load('decoders.xml');
         $loader->load('encoders.xml');

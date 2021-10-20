@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /*
  * This file is part of the brainbits transcoder bundle package.
  *
@@ -18,14 +21,15 @@ use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
  */
 class BrainbitsTranscoderExtensionTest extends AbstractExtensionTestCase
 {
-    protected function getContainerExtensions()
+    /**
+     * @inheritDoc
+     */
+    protected function getContainerExtensions(): array
     {
-        return [
-            new BrainbitsTranscoderExtension()
-        ];
+        return [new BrainbitsTranscoderExtension()];
     }
 
-    public function testContainerHasDefaultParameters()
+    public function testContainerHasDefaultParameters(): void
     {
         $this->load();
 
@@ -33,7 +37,7 @@ class BrainbitsTranscoderExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('brainbits.transcoder.encoder.7z.executable', '7z');
     }
 
-    public function testContainerHasProvidedParameters()
+    public function testContainerHasProvidedParameters(): void
     {
         $this->load([
             'encoder' => ['7z' => 'sevenZ'],

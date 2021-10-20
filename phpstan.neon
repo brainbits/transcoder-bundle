@@ -1,0 +1,10 @@
+parameters:
+    level: max
+    paths:
+        - src
+        - tests
+    bootstrapFiles:
+        - vendor/autoload.php
+includes:
+   - vendor/jangregor/phpstan-prophecy/extension.neon
+   - vendor/brainbits/phpstan-rules/rules.neon
