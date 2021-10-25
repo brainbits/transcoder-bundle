@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the brainbits transcoder bundle package.
@@ -13,8 +13,8 @@ declare(strict_types = 1);
 
 namespace Brainbits\TranscoderBundle\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
@@ -24,11 +24,11 @@ class AddEncoderPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container): void
     {
-        if (false === $container->hasDefinition('brainbits.transcoder.encoder.resolver')) {
+        if ($container->hasDefinition('brainbits.transcoder.encoder.resolver') === false) {
             return;
         }
 
-        $encoders = array();
+        $encoders = [];
         foreach ($container->findTaggedServiceIds('transcoder.encoder') as $id => $attributes) {
             $encoders[] = new Reference($id);
         }

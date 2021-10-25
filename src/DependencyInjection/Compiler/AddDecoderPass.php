@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the brainbits transcoder bundle package.
@@ -24,11 +24,11 @@ class AddDecoderPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container): void
     {
-        if (false === $container->hasDefinition('brainbits.transcoder.decoder.resolver')) {
+        if ($container->hasDefinition('brainbits.transcoder.decoder.resolver') === false) {
             return;
         }
 
-        $decoders = array();
+        $decoders = [];
         foreach ($container->findTaggedServiceIds('transcoder.decoder') as $id => $attributes) {
             $decoders[] = new Reference($id);
         }

@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /*
  * This file is part of the brainbits transcoder bundle package.
  *
@@ -12,6 +15,7 @@ namespace Brainbits\TranscoderBundle\Tests\DependencyInjection\Compiler;
 
 use Brainbits\TranscoderBundle\DependencyInjection\Compiler\AddDecoderPass;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
@@ -21,11 +25,13 @@ use Symfony\Component\DependencyInjection\Reference;
  */
 class AddDecoderPassTest extends TestCase
 {
-    public function testProcessWithoutDefinition()
+    use ProphecyTrait;
+
+    public function testProcessWithoutDefinition(): void
     {
         $pass = new AddDecoderPass();
 
-        $definition = new Definition(null, array(null));
+        $definition = new Definition(null, [null]);
 
         $container = $this->prophesize(ContainerBuilder::class);
         $container->hasDefinition('brainbits.transcoder.decoder.resolver')->willReturn(false);
@@ -34,18 +40,18 @@ class AddDecoderPassTest extends TestCase
 
         $pass->process($container->reveal());
 
-        $this->assertNull($definition->getArgument(0)[0]);
+        $this->assertNull($definition->getArguments()[0]);
     }
 
-    public function testProcess()
+    public function testProcess(): void
     {
         $pass = new AddDecoderPass();
 
-        $definition = new Definition(null, array(null));
+        $definition = new Definition(null, [null]);
 
         $container = $this->prophesize(ContainerBuilder::class);
         $container->hasDefinition('brainbits.transcoder.decoder.resolver')->willReturn(true);
-        $container->findTaggedServiceIds('transcoder.decoder')->willReturn(array('test_id' => 'arg'));
+        $container->findTaggedServiceIds('transcoder.decoder')->willReturn(['test_id' => 'arg']);
         $container->getDefinition('brainbits.transcoder.decoder.resolver')->willReturn($definition);
 
         $pass->process($container->reveal());
